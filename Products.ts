@@ -1,4 +1,4 @@
-interface Product {
+export interface Product {
   name: string;
   price: number;
   expirationDate?: Date;
@@ -25,3 +25,5 @@ const Product3: Product = {
   name: "Mobile Scratch Card",
   price: 50,
 };
+
+export const productslist: Product[] = [Product1, Product2, Product3];
