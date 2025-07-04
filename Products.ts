@@ -10,13 +10,13 @@ const Product1: Product = {
   name: "Cheese",
   price: 5,
   expirationDate: new Date("2025-7-15"),
-  weight: 2,
+  weight: 250,
   shippable: true,
 };
 
 const Product2: Product = {
   name: "TV",
-  price: 2000,
+  price: 5000,
   weight: 20,
   shippable: true,
 };
