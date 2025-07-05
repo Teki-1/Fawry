@@ -9,10 +9,17 @@ export class Cart {
   private CartItems: Item[] = [];
 
   add(product: Product, Quantity: number): void {
+    const productCheck = productslist.some((p) => p.id === product.id);
+    if (!productCheck) {
+      console.log("ERROR: Product not found in the product list!");
+      return;
+    }
+
     if (Quantity <= 0) {
       console.log("ERROR: Quantity must have value of one or higher !");
       return;
     }
+
     this.CartItems.push({ product, Quantity });
 
     const sum: number = Quantity * product.price;
