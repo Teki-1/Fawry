@@ -6,7 +6,7 @@ type Item = {
 };
 
 export class Cart {
-  private CartItems: Item[] = [];
+  public CartItems: Item[] = [];
 
   add(product: Product, Quantity: number): void {
     const productCheck = productslist.some((p) => p.id === product.id);
@@ -15,15 +15,15 @@ export class Cart {
       : false;
 
     if (expireCheck) {
-      console.log("ERROR: Product is expired!");
+      console.log(`ERROR: ${product.name} is expired!`);
       return;
     }
     if (!productCheck) {
-      console.log("ERROR: Product not found in the product list!");
+      console.log(`ERROR: ${product.name} not found in the product list!`);
       return;
     }
     if (!product.stock) {
-      console.log("ERROR: Product is out of stock!");
+      console.log(`ERROR: ${product.name} is out of stock!`);
       return;
     }
 
@@ -37,10 +37,6 @@ export class Cart {
     const sum: number = Quantity * product.price;
     const weight = product.weight || 0;
     const shipsum: number = (Quantity * weight) / 1000;
-    if (shipsum > 0) {
-      console.log(Quantity, "x", product.name, "Total weight: ", shipsum, "kg");
-    }
-    console.log(Quantity, "x", product.name, "Total price: ", sum);
   }
 
   EmptyCheckout(): void {
