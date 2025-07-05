@@ -10,8 +10,20 @@ export class Cart {
 
   add(product: Product, Quantity: number): void {
     const productCheck = productslist.some((p) => p.id === product.id);
+    const expireCheck = product.expirationDate
+      ? product.expirationDate < new Date()
+      : false;
+
+    if (expireCheck) {
+      console.log("ERROR: Product is expired!");
+      return;
+    }
     if (!productCheck) {
       console.log("ERROR: Product not found in the product list!");
+      return;
+    }
+    if (!product.stock) {
+      console.log("ERROR: Product is out of stock!");
       return;
     }
 
