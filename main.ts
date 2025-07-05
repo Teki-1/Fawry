@@ -2,6 +2,8 @@ import { Cart } from "./AddProduct";
 import { customerlist } from "./Customer";
 import { productslist } from "./Products";
 import { Checkout } from "./Checkout";
+import { ShippableService } from "./ShippableService";
+import { ShippableServicePerCustomer } from "./ShippableService";
 
 /*customerlist[0].cart = new Cart();
 customerlist[0].cart.add(productslist[0], 3);
@@ -21,3 +23,11 @@ Checkout(customerlist[2], customerlist[2].cart);*/
 customerlist[3].cart = new Cart();
 customerlist[3].cart.add(productslist[0], 2);
 Checkout(customerlist[3], customerlist[3].cart);
+ShippableServicePerCustomer(customerlist[3]);
+
+/*customerlist.forEach((customer) => {
+  if (customer.cart && customer.cart.CartItems.length > 0) {
+    console.log(`Shipping items for customer: ${customer.name}`);
+    ShippableService(customer.cart.CartItems);
+  }
+});*/

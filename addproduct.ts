@@ -33,10 +33,6 @@ export class Cart {
     }
 
     this.CartItems.push({ product, Quantity });
-
-    const sum: number = Quantity * product.price;
-    const weight = product.weight || 0;
-    const shipsum: number = (Quantity * weight) / 1000;
   }
 
   EmptyCheckout(): void {

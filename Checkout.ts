@@ -10,6 +10,7 @@ export function Checkout(customer: Customer, cart: Cart): void {
 
   console.log(`Customer: ${customer.name}`);
   console.log("**Shipment Notice**");
+
   cart.CartItems.forEach((item) => {
     const { product, Quantity } = item;
 
@@ -20,8 +21,10 @@ export function Checkout(customer: Customer, cart: Cart): void {
 
     console.log(`${Quantity} x ${product.name} ${itemTotalWeight} kg `);
   });
+
   console.log("-----------------------------");
   console.log("**Checout receipt**");
+
   cart.CartItems.forEach((item) => {
     const { product, Quantity } = item;
     let itemTotalPrice = product.price * Quantity;
@@ -32,10 +35,12 @@ export function Checkout(customer: Customer, cart: Cart): void {
   let total: number = subTotal + shippingCost;
   let balance: number = customer.balance;
   let remainingBalance: number = balance - total;
+
   if (remainingBalance < 0) {
     console.log("ERROR: Insufficient balance for checkout.");
     return;
   }
+
   console.log("-----------------------------");
   console.log(`Total Weight: ${totalWeight} kg`);
   console.log(`Subtotal: ${subTotal}`);
