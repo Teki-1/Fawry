@@ -42,4 +42,4 @@ const Product4: Product = {
   shippable: true,
   stock: true,
 };
-export const productslist: Product[] = [Product1, Product2, Product3];
+export const productslist: Product[] = [Product1, Product2, Product3, Product4];

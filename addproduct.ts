@@ -50,6 +50,3 @@ export class Cart {
     }
   }
 }
-
-const cart = new Cart();
-cart.add(productslist[2], 5);
